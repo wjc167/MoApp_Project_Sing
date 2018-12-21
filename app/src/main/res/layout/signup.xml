@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signupActivity">
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/emailcreate"
+        android:layout_centerHorizontal="true"
+        android:hint="이메일"
+        android:layout_marginTop="151dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/passwordcreate"
+        android:layout_centerHorizontal="true"
+        android:hint="비밀번호"
+        android:layout_below="@+id/emailcreate" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/passwordcheck"
+        android:layout_centerHorizontal="true"
+        android:hint="비밀번호 확인"
+        android:layout_below="@+id/passwordcreate" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="가입"
+        android:id="@+id/signupbutton2"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/passwordcheck"
+        android:layout_toStartOf="@+id/cancelButton"
+        android:onClick="signup2Clicked"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="취소"
+        android:id="@+id/cancelButton"
+        android:textAllCaps="false"
+        android:layout_alignTop="@+id/signupbutton2"
+        android:layout_alignEnd="@+id/passwordcheck"
+        android:onClick="cancelClicked"/>
+
+
+</RelativeLayout>

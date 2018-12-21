@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
 
+    static boolean islogin = false;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -42,8 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(islogin==false) {
+            Intent intent = new Intent(this, loginActivity.class);//생성자에는 Context랑 서브클래스를 넘김 의미는 this 즉 메인이 sub.class 를 부름 이런뜻
+            startActivity(intent);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

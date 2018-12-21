@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginActivity">
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/emailInput"
+        android:layout_centerHorizontal="true"
+        android:hint="이메일"
+        android:layout_marginTop="151dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/passwordInput"
+        android:layout_centerHorizontal="true"
+        android:hint="비밀번호"
+        android:layout_below="@+id/emailInput" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="로그인"
+        android:id="@+id/loginButton"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/passwordInput"
+        android:layout_toStartOf="@+id/signupButton"
+        android:onClick="loginClicked"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:text="회원가입"
+        android:id="@+id/signupButton"
+        android:textAllCaps="false"
+        android:layout_alignTop="@+id/loginButton"
+        android:layout_alignEnd="@+id/passwordInput"
+        android:onClick="signupClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동 로그인"
+        android:id="@+id/checkBox"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
