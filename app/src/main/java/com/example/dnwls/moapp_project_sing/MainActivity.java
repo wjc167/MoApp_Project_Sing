@@ -1,5 +1,6 @@
 package com.example.dnwls.moapp_project_sing;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,8 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseReference mDatabase;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -49,7 +56,26 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        /*mDatabase.child("User").child("dnwlscjf167").addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.getValue(User.class);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                }
+        );
+        */
+        writeNewUser("dnwlscjf167", "우진철", "1234");
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -143,5 +169,27 @@ public class MainActivity extends AppCompatActivity {
             // Show 3 total pages.
             return 4;
         }
+    }
+
+    public class User {
+
+        public String username;
+        public String password;
+
+        public User() {
+            // Default constructor required for calls to DataSnapshot.getValue(User.class)
+        }
+
+        public User(String username, String password) {
+            this.username = username;
+            this.password = password;
+        }
+
+    }
+
+    private void writeNewUser(String userId, String name, String password) {
+        User user = new User(name, password);
+
+        mDatabase.child("User").child(userId).setValue(user);
     }
 }
