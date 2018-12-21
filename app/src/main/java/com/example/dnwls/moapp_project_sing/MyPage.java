@@ -30,10 +30,16 @@ import static com.example.dnwls.moapp_project_sing.MainActivity.islogin;
 import static com.example.dnwls.moapp_project_sing.MainActivity.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class MyPage extends Fragment {
     DatabaseReference mDatabase;
+    Float one = Float.parseFloat("5");
+    Float two = Float.parseFloat("5");
+    Float three = Float.parseFloat("5");
+    Float four = Float.parseFloat("5");
+    Float five = Float.parseFloat("5");
 
     public static final float MAX = 5, MIN = 0;
     public static final int NB_QUARLITIES = 5;
@@ -55,7 +61,26 @@ public class MyPage extends Fragment {
 
         chart = (RadarChart) v.findViewById(R.id.chart);
 
-        drawChart();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("User").child(user).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
+                        one = Float.parseFloat(map.get("난이도"));
+                        two = Float.parseFloat(map.get("인기"));
+                        three = Float.parseFloat(map.get("속도"));
+                        four = Float.parseFloat(map.get("호응도"));
+                        five = Float.parseFloat(map.get("박자감"));
+                        drawChart();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                }
+        );
 
         return v;
     }
@@ -116,31 +141,17 @@ public class MyPage extends Fragment {
 
     private void setData(){
         ArrayList<RadarEntry> User = new ArrayList<>();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("User").child(user).addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        dataSnapshot.getValue();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                }
-        );
 
         //1항목 데이터
-        User.add(new RadarEntry(5));
+        User.add(new RadarEntry(one));
         //2항목
-        User.add(new RadarEntry(5));
+        User.add(new RadarEntry(two));
         //3항목
-        User.add(new RadarEntry(5));
+        User.add(new RadarEntry(three));
         //4항목
-        User.add(new RadarEntry(1));
+        User.add(new RadarEntry(four));
         //5항목
-        User.add(new RadarEntry(5));
+        User.add(new RadarEntry(five));
 
         RadarDataSet set1 = new RadarDataSet(User, "User");
         set1.setColor(Color.GREEN);

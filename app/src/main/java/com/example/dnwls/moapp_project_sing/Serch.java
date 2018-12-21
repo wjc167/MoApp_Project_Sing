@@ -26,6 +26,7 @@ public class Serch extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
         Button buttonRequestJSON = (Button)getView().findViewById(R.id.searchbutton);
         ListView listviewPhtoList = (ListView)getView().findViewById(R.id.songListview);
         searchKeyword = (EditText)getView().findViewById(R.id.searchbox);
@@ -36,7 +37,7 @@ public class Serch extends Fragment {
         int[] to = new int[] {R.id.singer, R.id.songname,R.id.songnumber};
         adapter = new SimpleAdapter(getActivity(), songList, R.layout.listview_items, from, to);
         listviewPhtoList.setAdapter(adapter);
-
+        */
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

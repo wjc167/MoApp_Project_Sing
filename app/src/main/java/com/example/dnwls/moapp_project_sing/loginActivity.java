@@ -47,6 +47,7 @@ public class loginActivity extends AppCompatActivity {
                         if (dataSnapshot.getValue().equals(passworddummy)) {
                             islogin = true;
                             user = emaildummy;
+                            finish();
                         }
                     }
 
@@ -56,11 +57,6 @@ public class loginActivity extends AppCompatActivity {
                     }
                 }
         );
-
-        //같으면 다음연결
-        if (islogin) {
-            finish();
-        }
     }
 
     public void signupClicked(View v){
