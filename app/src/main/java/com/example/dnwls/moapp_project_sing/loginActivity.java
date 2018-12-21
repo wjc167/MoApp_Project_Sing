@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import static com.example.dnwls.moapp_project_sing.MainActivity.islogin;
+import static com.example.dnwls.moapp_project_sing.MainActivity.user;
 
 public class loginActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
@@ -34,7 +35,7 @@ public class loginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.passwordInput);
 
         //스트링 받기
-        String emaildummy = Email.getText().toString();
+        final String emaildummy = Email.getText().toString();
         final String passworddummy = password.getText().toString();
 
         //DB연결
@@ -45,6 +46,7 @@ public class loginActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getValue().equals(passworddummy)) {
                             islogin = true;
+                            user = emaildummy;
                         }
                     }
 
@@ -57,8 +59,7 @@ public class loginActivity extends AppCompatActivity {
 
         //같으면 다음연결
         if (islogin) {
-            Intent intent = new Intent(this, MainActivity.class);//생성자에는 Context랑 서브클래스를 넘김 의미는 this 즉 메인이 sub.class 를 부름 이런뜻
-            startActivity(intent);
+            finish();
         }
     }
 

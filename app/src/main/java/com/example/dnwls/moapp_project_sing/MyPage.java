@@ -3,6 +3,7 @@ package com.example.dnwls.moapp_project_sing;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +20,20 @@ import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.dnwls.moapp_project_sing.MainActivity.islogin;
+import static com.example.dnwls.moapp_project_sing.MainActivity.user;
 
 import java.util.ArrayList;
 
 
 public class MyPage extends Fragment {
+    DatabaseReference mDatabase;
 
     public static final float MAX = 5, MIN = 0;
     public static final int NB_QUARLITIES = 5;
@@ -38,6 +48,7 @@ public class MyPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
 
         View v = getLayoutInflater().inflate(R.layout.fragment_my_page, container, false);
@@ -74,7 +85,7 @@ public class MyPage extends Fragment {
         xAxis.setValueFormatter(new IAxisValueFormatter() {
 
             // compare qualities
-            private String[] qualities = new String[] {"1항목", "2항목", "3항목", "4항목", "5항목"};
+            private String[] qualities = new String[] {"난이도", "인기", "빠르기", "호응도", "박자감"};
 
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
@@ -105,6 +116,20 @@ public class MyPage extends Fragment {
 
     private void setData(){
         ArrayList<RadarEntry> User = new ArrayList<>();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("User").child(user).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        dataSnapshot.getValue();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                }
+        );
 
         //1항목 데이터
         User.add(new RadarEntry(5));
