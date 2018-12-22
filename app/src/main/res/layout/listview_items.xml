@@ -10,23 +10,27 @@
         android:layout_weight="1"
         android:text="no"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/textview_main_listviewdata2"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:text="title" />
+        android:text="title"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/textview_main_listviewdata3"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:text="singer" />
+        android:text="singer"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/textview_main_listviewdata4"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:text="composer" />
+        android:text="composer"
+        android:gravity="center"/>
 </LinearLayout>

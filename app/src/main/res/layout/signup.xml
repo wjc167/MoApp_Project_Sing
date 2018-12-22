@@ -11,6 +11,7 @@
         android:id="@+id/emailcreate"
         android:layout_centerHorizontal="true"
         android:hint="이메일"
+        android:singleLine="true"
         android:layout_marginTop="151dp" />
 
     <EditText
@@ -19,7 +20,9 @@
         android:id="@+id/passwordcreate"
         android:layout_centerHorizontal="true"
         android:hint="비밀번호"
-        android:layout_below="@+id/emailcreate" />
+        android:layout_below="@+id/emailcreate"
+        android:singleLine="true"
+        android:inputType="textPassword"/>
 
     <EditText
         android:layout_width="300dp"
@@ -27,6 +30,8 @@
         android:id="@+id/passwordcheck"
         android:layout_centerHorizontal="true"
         android:hint="비밀번호 확인"
+        android:singleLine="true"
+        android:inputType="textPassword"
         android:layout_below="@+id/passwordcreate" />
 
     <Button

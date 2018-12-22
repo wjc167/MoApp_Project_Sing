@@ -100,11 +100,11 @@ public class MyPage extends Fragment {
         setData();
 
         // animate the chart
-        chart.animateXY(1400, 1400, Easing.EasingOption.EaseInOutQuad, Easing.EasingOption.EaseInOutQuad);
+        chart.animateXY(700, 700, Easing.EasingOption.EaseInOutQuad, Easing.EasingOption.EaseInOutQuad);
 
         // define axis
         XAxis xAxis = chart.getXAxis();
-        xAxis.setTextSize(18f);
+        xAxis.setTextSize(9f);
         xAxis.setYOffset(0);
         xAxis.setXOffset(0);
         xAxis.setValueFormatter(new IAxisValueFormatter() {
@@ -122,14 +122,14 @@ public class MyPage extends Fragment {
 
         YAxis yAxis = chart.getYAxis();
         yAxis.setLabelCount(NB_QUARLITIES, false);
-        yAxis.setTextSize(10f);
+        yAxis.setTextSize(5f);
         yAxis.setAxisMinimum(MIN);
         yAxis.setAxisMaximum(MAX); //min MAX
         yAxis.setDrawLabels(false);
 
         //configure legend for our radar chart
         Legend l = chart.getLegend();
-        l.setTextSize(30f);
+        l.setTextSize(15f);
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
@@ -158,7 +158,7 @@ public class MyPage extends Fragment {
         set1.setFillColor(Color.GREEN);
         set1.setDrawFilled(true);
         set1.setFillAlpha(180);
-        set1.setLineWidth(2f);
+        set1.setLineWidth(1f);
         set1.setDrawHighlightIndicators(false);
         set1.setDrawHighlightCircleEnabled(false);
 
@@ -166,12 +166,12 @@ public class MyPage extends Fragment {
         sets.add(set1);
 
         RadarData data = new RadarData(sets);
-        data.setValueTextSize(10f);
+        data.setValueTextSize(5f);
         data.setDrawValues(false);
         data.setValueTextColor(Color.WHITE);
 
         chart.setData(data);
-        chart.invalidate();;
+        chart.invalidate();
     }
 
 }

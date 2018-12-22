@@ -11,6 +11,7 @@
         android:id="@+id/emailInput"
         android:layout_centerHorizontal="true"
         android:hint="이메일"
+        android:singleLine="true"
         android:layout_marginTop="151dp" />
 
     <EditText
@@ -18,6 +19,8 @@
         android:layout_height="50dp"
         android:id="@+id/passwordInput"
         android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:inputType="textPassword"
         android:hint="비밀번호"
         android:layout_below="@+id/emailInput" />
 

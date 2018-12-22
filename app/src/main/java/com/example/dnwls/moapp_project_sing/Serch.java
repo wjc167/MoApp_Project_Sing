@@ -55,11 +55,6 @@ public class Serch extends Fragment {
 
         View v = getLayoutInflater().inflate(R.layout.fragment_serch, container, false);
 
-
-//        Button buttonRequestJSON = (Button)v.findViewById(R.id.button_main_requestjson);
-//        textviewJSONText = (TextView)v.findViewById(R.id.textview_main_jsontext);
-//        textviewJSONText.setMovementMethod(new ScrollingMovementMethod());
-
         Button buttonRequestJSON = (Button)v.findViewById(R.id.button_main_requestjson);
         ListView listviewPhtoList = (ListView)v.findViewById(R.id.listview_main_list);
         searchKeyword = (EditText)v.findViewById(R.id.edittext_main_searchkeyword);
