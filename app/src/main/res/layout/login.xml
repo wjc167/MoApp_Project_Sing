@@ -5,14 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".loginActivity">
 
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/login_logo" />
+
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:id="@+id/emailInput"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
         android:hint="이메일"
-        android:singleLine="true"
-        android:layout_marginTop="151dp" />
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="300dp"

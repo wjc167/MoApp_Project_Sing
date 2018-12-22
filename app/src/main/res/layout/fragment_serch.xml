@@ -41,25 +41,29 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="노래번호" />
+            android:text="노래번호"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/textview_main_listviewheader2"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="제목" />
+            android:text="제목"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/textview_main_listviewheader3"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="가수" />
+            android:text="가수"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/textview_main_listviewheader4"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="작곡가" />
+            android:text="작곡가"
+            android:gravity="center"/>
 
     </LinearLayout>
 
