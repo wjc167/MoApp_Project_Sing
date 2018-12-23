@@ -67,11 +67,11 @@ public class MyPage extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         HashMap<String, String> map = (HashMap) dataSnapshot.getValue();
-                        one = Float.parseFloat(map.get("난이도"));
-                        two = Float.parseFloat(map.get("인기"));
-                        three = Float.parseFloat(map.get("속도"));
-                        four = Float.parseFloat(map.get("호응도"));
-                        five = Float.parseFloat(map.get("박자감"));
+                        one = Float.parseFloat(map.get("level"));
+                        two = Float.parseFloat(map.get("like"));
+                        three = Float.parseFloat(map.get("fast"));
+                        four = Float.parseFloat(map.get("banung"));
+                        five = Float.parseFloat(map.get("drum"));
                         drawChart();
                     }
 

@@ -15,16 +15,13 @@ public class signupActivity extends AppCompatActivity {
     EditText password;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.signup);
     }
 
     //가입
-    public void signup2Clicked(View v){//생성자에는 Context랑 서브클래스를 넘김 의미는 this 즉 메인이 sub.class 를 부름 이런뜻
-
+    public void signup2Clicked(View v){
         Email = (EditText) findViewById(R.id.emailcreate);
         password = (EditText) findViewById(R.id.passwordcreate);
 
@@ -32,8 +29,8 @@ public class signupActivity extends AppCompatActivity {
         String passworddummy = password.getText().toString();
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
         writeNewUser(Emaildummy, "더미", passworddummy);
+
         finish();
     }
 
@@ -43,9 +40,14 @@ public class signupActivity extends AppCompatActivity {
     }
 
     public class User {
-
         public String username;
         public String password;
+        public String level;
+        public String like;
+        public String fast;
+        public String banung;
+        public String drum;
+        public String count;
 
         public User() {
             // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -54,14 +56,20 @@ public class signupActivity extends AppCompatActivity {
         public User(String username, String password) {
             this.username = username;
             this.password = password;
-        }
+            this.level = "5";
+            this.like = "5";
+            this.fast = "5";
+            this.banung = "5";
+            this.drum = "5";
+            this.count = "0";
+}
 
     }
 
-    private void writeNewUser(String userId, String name, String password) {
+private void writeNewUser(String userId, String name, String password) {
         User user = new User(name, password);
 
         mDatabase.child("User").child(userId).setValue(user);
-    }
+        }
 
 }
